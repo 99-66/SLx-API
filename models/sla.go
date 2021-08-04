@@ -10,6 +10,8 @@ const (
 	DAY          = 1
 	SecondPerDay = 86400
 	// YEAR http://en.wikipedia.org/wiki/Year#Summary
+	// http://manse.ndsl.kr/contents-3.html
+	// 그레고리력의 1년 평균 길이는 365.2425일이다
 	YEAR  = 365.2425
 	MONTH = YEAR / 12
 )

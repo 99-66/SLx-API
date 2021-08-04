@@ -27,18 +27,28 @@ Uptime : 기간(daily, monthly..) 중에 서비스를 사용할 수 있는 시�
 "yearly": "8h45m56s"
 ```
 
+##Optional information
+```shell
+SLA Calculator 사이트를 보다보면 간혹 같은 99.9%라도 시간 차가 있는 것을 볼 수 있다
+- https://uptime.is/
+- http://www.slatools.com/sla-uptime-calculator
+
+두 사이트가 같은 가동율에도 시간 차가 발생하는 것은 1년의 일수가 다르기 때문이다
+보통 1년을 365일로 계산하지만, 그레고리력으로 1년의 평균 길이는 365.2425일이 된다
+(* https://en.wikipedia.org/wiki/Year#Summary 중
+"An average Gregorian year is 365.2425 days"...)
+ 
+따라서 1년을 어떤 일수로 두냐에 따라 다음과 같이 Yearly downtime에 차이가 발생하게 된다
+1년을 365.2425으로 계산 : 8h 45m 56s
+1년을 365으로 계산 : 8h 45m 35s
+```
+
 ## SLA API
 퍼센티지를 파라미터로 받아 가동율에 대한 uptime, downtime을 반환한다
 ```shell
 http://localhost:8000/sla/99.9
 
 {
-  "uptime": {
-    "daily": "23h58m33s",
-    "weekly": "6d 23h49m55s",
-    "monthly": "30d 9h45m16s",
-    "yearly": "364d 21h3m15s"
-  },
   "downtime": {
     "daily": "1m26s",
     "weekly": "10m4s",
